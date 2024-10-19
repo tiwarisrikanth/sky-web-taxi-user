@@ -310,16 +310,41 @@ class _VehicleDataState extends State<VehicleData> {
                                       });
                                     }
                                   },
-                                  leading: ImageIcon(
-                                    NetworkImage(
-                                      'https://firebasestorage.googleapis.com/v0/b/newsapp-df8ab.appspot.com/o/360_F_213750591_6bVeg9sH1cD7wEvYhb2OUyHOesJzPtAL-removebg-preview.png?alt=media&token=6f02843a-703d-4ac0-86f8-f659c9590dfa',
-                                    ),
-                                    size: 44,
-                                    color: selectedInt == index
-                                        ? white
-                                        : Colors.black,
-                                  ),
-                                  title: Text("Mini ${index + 1}",
+                                  leading: index == 0
+                                      ? Image.asset(
+                                          'assets/images/car.png',
+                                          height: 50,
+                                          width: 50,
+                                        )
+                                      : index == 1
+                                          ? Image.asset(
+                                              'assets/images/rikshaw.png',
+                                              height: 50,
+                                              width: 50,
+                                            )
+                                          : index == 2
+                                              ? Image.asset(
+                                                  'assets/images/motorcycle.png',
+                                                  height: 50,
+                                                  width: 50,
+                                                )
+                                              : ImageIcon(
+                                                  NetworkImage(
+                                                    'https://firebasestorage.googleapis.com/v0/b/newsapp-df8ab.appspot.com/o/360_F_213750591_6bVeg9sH1cD7wEvYhb2OUyHOesJzPtAL-removebg-preview.png?alt=media&token=6f02843a-703d-4ac0-86f8-f659c9590dfa',
+                                                  ),
+                                                  size: 44,
+                                                  color: selectedInt == index
+                                                      ? white
+                                                      : Colors.black,
+                                                ),
+                                  title: Text(
+                                      index == 0
+                                          ? "Taxi"
+                                          : index == 1
+                                              ? "Auto"
+                                              : index == 2
+                                                  ? "Bike"
+                                                  : "Taxi ${index + 1}",
                                       style: GoogleFonts.poppins(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w600,
@@ -335,7 +360,14 @@ class _VehicleDataState extends State<VehicleData> {
                                             ? white
                                             : Colors.grey,
                                       )),
-                                  trailing: Text("₹ ${500 + index + 200}/-",
+                                  trailing: Text(
+                                      index == 0
+                                          ? "₹ ${500 + index + 500}/-"
+                                          : index == 1
+                                              ? "₹ ${500 + index + 200}/-"
+                                              : index == 2
+                                                  ? "₹ ${500}/-"
+                                                  : "₹ ${500 + index + 200}/-",
                                       style: GoogleFonts.poppins(
                                         fontSize: 15,
                                         fontWeight: selectedInt == index
